@@ -6,7 +6,7 @@ import { Home } from "./pages/homePage/home";
 function App() {
   return (
     <div className="App">
-        
+         {/* checking */}
           <Routes>
             <Route exact path="/" element={ <Home />} />
           </Routes>
