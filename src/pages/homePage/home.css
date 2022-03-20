@@ -1,0 +1,9 @@
+.home-container {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-areas: 
+    "navbar"
+    "main"
+    "footer";
+    grid-template-rows: 6rem auto auto ;
+}
