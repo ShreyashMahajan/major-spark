@@ -1,0 +1,83 @@
+.product--card {
+    width: 17rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 9px;
+    border: 1px solid rgb(219, 216, 216); 
+    padding: 1rem;
+ }
+ 
+ .product--card:hover {
+    box-shadow: -5px 5px 5px rgb(202, 202, 202),
+    5px 5px 5px rgb(202, 202, 202);
+ }
+ 
+ .product__img {
+    width: 100%;
+    display: flex;
+    
+ }
+ 
+ .product--name {
+    display: flex;
+    justify-content: flex-start;
+    font-size: x-large;
+    color: rgb(51, 50, 50);
+    margin-bottom: 5px;
+    margin-left: 5px;
+ }
+ 
+ .product--version {
+    text-align: left;
+    font-weight: bold;
+    margin-left: 5px;
+ }
+ 
+ .product-spec {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem;
+    border-bottom: 1px solid rgb(219, 216, 216);
+ }
+ 
+ .product-info {
+    background-color: #e1f1ee;
+    padding: 5px;
+    margin-bottom: 1rem;
+ }
+ 
+ .product-price {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+ }
+ 
+ .product-emi {
+    font-size: x-large;
+    color: rgb(247, 169, 26);
+    font-weight: bold;
+ }
+ 
+ .product-total {
+    color: gray;
+ }
+ 
+ .product--downpayment {
+    text-align: left;
+    font-size:small;
+    color: gray;
+    margin: 5px;
+ }
+ 
+ .product-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+ 
+ .product__btn {
+    width: fit-content;
+    padding: 10px 1rem;
+    font-size: large;
+    background-color: var(--secondary-color);
+ }
