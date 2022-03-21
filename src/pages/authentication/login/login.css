@@ -1,0 +1,85 @@
+:root {
+    --forgot-pass-color: rgb(3, 3, 199);
+    --white-color: white;
+    --btn-bg-color: rgb(66, 66, 245);
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.login-container {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-areas: 
+    "navbar"
+    "main"
+    "footer";
+    grid-template-rows: 6rem auto auto ;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--primary-color);
+    padding: 1rem;
+    row-gap: 0rem;
+}
+
+.input-data {
+    box-sizing: border-box;
+   width: 15rem;
+   padding: 10px;
+   border: 1px solid var(--primary-color);
+}
+
+.user-info-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.user-remember {
+    display: flex;
+    align-items: center;
+}
+
+.user-remember__heading {
+    font-size: small;
+    padding: 0;
+}
+
+#userRemember {
+    margin: 0;
+    padding: 0;
+}
+
+.forgot-pass--link {
+    color: var(--forgot-pass-color);
+    text-decoration: none;
+    font-size: 1rem;
+    margin-left: 1rem;
+}
+
+.btn-user--login {
+    padding: 5px;
+    background-color: var(--btn-bg-color);
+    color: var(--white-color);
+}
+
+.user-new-account {
+    margin: 1rem;
+    text-align: center;
+}

@@ -1,0 +1,147 @@
+:root {
+    --price-color: rgb(255, 166, 0);
+    --card-border-color: rgb(185, 185, 185);
+    --btn-remove-color: rgb(209, 207, 207);
+    --btn-place-bg-color: rgb(4, 86, 153);
+    --btn-place-color: white;
+}
+
+.mainCart {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-areas: 
+    "navbar"
+    "main"
+    "footer";
+    grid-template-rows: 6rem auto auto ;
+}
+
+.cart--box {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    align-items:center;
+}
+
+.cart-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
+
+.cart-productList {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.cart-product--card {
+    display: flex;
+    width: 25rem;
+    border: 1px solid var(--card-border-color);
+    padding: 8px;
+}
+
+.prod-cart__img {
+    width: 45%;
+    height: 8rem;
+}
+
+.cart-product--info {
+    margin-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.cart-product-name {
+    font-size: large;
+}
+
+.cart-product--price {
+    color: var(--price-color);
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.product-qty {
+    display: flex;
+}
+
+.product-qty__text {
+   margin-right: 4px;
+}
+
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+  
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+.input-qty--value {
+    width: 1.2rem;
+}
+
+.btn-qty {
+    width: 1.3rem;
+}
+
+.cart__btn-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+}
+
+.btn--cart {
+    padding: 7px;
+    font-size: medium;
+}
+
+.cart--remove {
+    background-color: var(--btn-remove-color) ;
+}
+
+.cart--price-details {
+    box-sizing: border-box;
+    padding: 1rem;
+    width: 25rem;
+    height: fit-content;
+     display: flex;
+     flex-direction: column;
+     row-gap: 1rem;
+     border:  1px solid var(--card-border-color);
+}
+
+.cart-price__heading {
+    font-weight: bold;
+    font-size: large;
+}
+
+.cart-price-cont {
+    display: flex;
+    justify-content: space-between;
+    row-gap: 1rem;
+}
+
+.delivery-charge-detail {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart--total {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-place-order {
+    padding: 8px;
+    color: var(--btn-place-color);
+    background-color: var(--btn-place-bg-color);
+}
