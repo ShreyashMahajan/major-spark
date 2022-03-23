@@ -1,0 +1,24 @@
+
+
+
+.wish-container {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-areas: 
+    "navbar"
+    "main"
+    "footer";
+    grid-template-rows: 6rem auto auto ;
+}
+
+.category-wrapper {
+    align-items: center;
+}
+
+.cart--remove {
+    width: 10rem ;
+}
+
+.wishlist__img--active {
+    width: 3rem;
+}
