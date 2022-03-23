@@ -7,12 +7,13 @@ import { FilterSort } from "../../components/filterCategory/filterSort/filterSor
 import { Footer } from "../../components/footer/footer"
 import { Navbar } from "../../components/navbar/navbar"
 import { ProductCard } from "../../components/productCard/ProductCard"
+import { useFilter } from '../../context/filterContext/filterContext';
 
 
 
 export const ProductListing = () => {
 
-
+    const { dispatch } = useFilter();
 
     return (
         <div className="product-container">
@@ -21,9 +22,7 @@ export const ProductListing = () => {
                 <div className="product-filter-container">
                     <div className="filter-content">
                         <p className="filter--text">Filters</p>
-                        <a href className="filter--link">
-                            <p className="filter--clear">Clear</p>
-                        </a>
+                        <p className="filter--clear" onClick={() => dispatch({ type: "CLEAR" })} >Clear</p>
                     </div>
                     <FilterPrice />
                     <FilterCategory />
@@ -35,7 +34,7 @@ export const ProductListing = () => {
 
             <main className="main-container">
                 <div className="category-wrapper">
-                    <h2 className="category__heading">Bikes</h2>
+                    <h2 className="category__heading">Show vehicles</h2>
                     <div className="category-section">
                         <ProductCard />
                     </div>

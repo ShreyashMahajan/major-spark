@@ -21,9 +21,6 @@ const ProductProvider = ({ children }) => {
     }, [])
 
 
-    console.log("From products use effect", productList);
-
-
     return (
         <ProductContext.Provider value={{ productList }}>
             {children}

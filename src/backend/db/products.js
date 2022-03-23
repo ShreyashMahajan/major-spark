@@ -1,4 +1,6 @@
 import { v4 as uuid } from "uuid";
+import scooter from '../../assets/images/scooter.png';
+
 
 /**
  * Product Database can be added here.
