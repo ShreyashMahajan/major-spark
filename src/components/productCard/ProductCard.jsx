@@ -1,12 +1,15 @@
+import { useCart } from '../../context/cartContext/cartContext';
+import { useFilter } from '../../context/filterContext/filterContext';
 import './productCard.css'
 
 export const ProductCard = () => {
-    const { productList } = useProduct();
+    const { finalFilteredData } = useFilter();
+    const { cartDispatch } = useCart();
 
     return (
         <>
             {
-                productList.map((item) => {
+                finalFilteredData.map((item) => {
                     return (
                         <div className="product--card">
                             <div>
@@ -24,12 +27,12 @@ export const ProductCard = () => {
                                 </div>
                                 <p className="product--downpayment">Zero downpayment</p>
                                 <div className="product-cta">
-                                    <a href="/product_listing/product_listing.html"> <button className="product__btn">Buy
-                                        Now</button></a>
+                                    <button className="product__btn" onClick={() => cartDispatch({ type: "ADD_TO_CART", payload: item })}>Buy
+                                        Now</button>
                                     <img src="/images/home-page/wishlist-black.png" alt="" className="product-wishlist" />
                                 </div>
                             </div>
-                        </div >
+                        </div>
                     )
 
                 })
