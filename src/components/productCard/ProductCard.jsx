@@ -1,10 +1,8 @@
-import { useCart } from '../../context/cartContext/cartContext';
 import { useFilter } from '../../context/filterContext/filterContext';
 import './productCard.css'
 
 export const ProductCard = () => {
     const { finalFilteredData } = useFilter();
-    const { cartDispatch } = useCart();
 
     return (
         <>
