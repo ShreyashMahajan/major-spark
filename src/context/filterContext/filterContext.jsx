@@ -7,7 +7,6 @@ import { sortDataByRange } from '../../reducerFunctions/filterReducer/reducerUti
 import { filterByRating } from '../../reducerFunctions/filterReducer/reducerUtilities/filterRatingFunc';
 import { filterByPrice } from '../../reducerFunctions/filterReducer/reducerUtilities/filterPriceFunc';
 import { filterDataByCategory } from '../../reducerFunctions/filterReducer/reducerUtilities/filterCategoryFunc';
-import { useEffect } from "react";
 
 
 

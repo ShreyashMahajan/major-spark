@@ -1,15 +1,20 @@
+import { useCart } from '../../context/cartContext/cartContext.jsx'
 import { useFilter } from '../../context/filterContext/filterContext';
 import './productCard.css'
+import wishListNotActiveImg from '../../assets/images/wishlist-black.png';
+import { useWishList } from '../../context/wishContext/wishContext';
 
 export const ProductCard = () => {
     const { finalFilteredData } = useFilter();
+    const { cartDispatch } = useCart();
+    const { wishListDispatch } = useWishList();
 
     return (
         <>
             {
                 finalFilteredData.map((item) => {
                     return (
-                        <div className="product--card">
+                        <div className="product--card" key={item.id}>
                             <div>
                                 <img src={item.image} alt="swift car" className="product__img" />
                                 <h3 className="product--name">{item.name}</h3>
@@ -27,8 +32,7 @@ export const ProductCard = () => {
                                 <div className="product-cta">
                                     <button className="product__btn" onClick={() => cartDispatch({ type: "ADD_TO_CART", payload: item })}>Buy
                                         Now</button>
-                                    <img src="/images/home-page/wishlist-black.png" alt="" className="product-wishlist" />
-                                </div>
+                                    <img src={wishListNotActiveImg} onClick={() => wishListDispatch({ type: 'ADD_WISHLIST', payload: item })} alt="" className="product-wishlist" />                                </div>
                             </div>
                         </div>
                     )
