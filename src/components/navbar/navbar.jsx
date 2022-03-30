@@ -4,8 +4,14 @@ import Cart from '../../assets/images/cart.png';
 import wishlist from '../../assets/images/wishlist.png';
 import logout from '../../assets/images/logout.png';
 import { Link, NavLink } from 'react-router-dom';
+import { useCart } from '../../context/cartContext/cartContext';
+import { useWishList } from '../../context/wishContext/wishContext';
 
 export const Navbar = () => {
+    const { cartState } = useCart();
+    const { cartList } = cartState;
+    const { wishListState } = useWishList();
+    const { wishList } = wishListState;
     return (
         <>
             <nav className="navbar">
@@ -20,7 +26,7 @@ export const Navbar = () => {
                         <div className="wishlist-box">
                             <div className="badge">
                                 <img src={wishlist} alt="wishlist image" className="badge__img" />
-                                <span className="badge__text">7</span>
+                                <span className="badge__text">{wishList.length}</span>
                             </div>
                         </div>
                     </NavLink>
@@ -28,7 +34,7 @@ export const Navbar = () => {
                         <div className="cart-box">
                             <div className="badge">
                                 <img src={Cart} alt="Cart image" className="badge__img" />
-                                <span className="badge__text">1</span>
+                                <span className="badge__text">{cartList.length}</span>
                             </div>
                             <p className="text--cart">Cart</p>
                         </div>
