@@ -6,20 +6,26 @@ import logout from '../../assets/images/logout.png';
 import { Link, NavLink } from 'react-router-dom';
 import { useCart } from '../../context/cartContext/cartContext';
 import { useWishList } from '../../context/wishContext/wishContext';
+import { useFilter } from '../../context/filterContext/filterContext';
 
-export const Navbar = () => {
+export const Navbar = ({ showSearch }) => {
     const { cartState } = useCart();
     const { cartList } = cartState;
     const { wishListState } = useWishList();
     const { wishList } = wishListState;
+    const { dispatch, state } = useFilter();
+    const { sortBySearch } = state;
     return (
         <>
             <nav className="navbar">
                 <NavLink to="/" className="link--home" > <h3 className='link--home nav__heading'>MajorSpark</h3> </NavLink>
-                <div className="search-container">
-                    <input type="search" name="searchBar" className="input__search" placeholder="search here" />
-                    <button className="btn__search"><img src={search} alt="search" className="img--icon" /></button>
-                </div>
+                {
+                    showSearch &&
+                    <div className="search-container">
+                        <input type="search" name="searchBar" onChange={(e) => dispatch({ type: "SEARCH", payload: e.target.value })} className="input__search" placeholder="search here" />
+                        <button className="btn__search"><img src={search} alt="search" className="img--icon" /></button>
+                    </div>
+                }
                 <div className="customer-info">
                     <NavLink to="/login"> <button className="btn--login">Login</button> </NavLink>
                     <NavLink to="/wishlist">
@@ -43,10 +49,13 @@ export const Navbar = () => {
                         <img src={logout} alt="Logout icon" className="badge__img" />
                     </a>
                 </div>
-                <div className="search-container search-container2">
-                    <input type="search" name="searchBar" className="input__search" placeholder="search here" />
-                    <NavLink to="/logout"><button className="btn__search"><img src={search} alt="search" className="img--icon" /></button></NavLink>
-                </div>
+                {
+                    showSearch &&
+                    <div className="search-container search-container2">
+                        <input type="search" name="searchBar" className="input__search" placeholder="search here" />
+                        <NavLink to="/logout"><button className="btn__search"><img src={search} alt="search" className="img--icon" /></button></NavLink>
+                    </div>
+                }
             </nav>
 
 
