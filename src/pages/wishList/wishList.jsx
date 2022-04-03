@@ -13,7 +13,6 @@ export const Wishlist = () => {
           <div className="category-section">
             <WishCard />
           </div>
-          <button className="btn-view-all">View all</button>
         </div>
       </main>
 

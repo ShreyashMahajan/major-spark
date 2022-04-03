@@ -4,10 +4,12 @@ import eBike from '../../assets/images/bike-electric.webp';
 import scooter from '../../assets/images/scooter.png';
 import wishlist from '../../assets/images/wishlist.png';
 import { Footer } from "../../components/footer/footer";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { useFilter } from '../../context/filterContext/filterContext';
 
 
 export const Home = () => {
+    const { state, dispatch } = useFilter();
     return (
         <div className="home-container">
             <Navbar />
@@ -23,22 +25,26 @@ export const Home = () => {
                 <div className="category-wrapper">
                     <h2 className="category__heading">Categories</h2>
                     <div className="category-section">
-                        <div className="category--card">
-                            <img src={scooter} alt="" className="category--card__image" />
-                            <div className="category--card-content">
-                                <h1 className="category--card__heading">Scooters</h1>
-                                <Link to="/productListing"> <button className="category--card-btn">Buy
-                                    Now</button></Link>
+                        <NavLink to='/productListing'>
+                            <div className="category--card" onClick={() => dispatch({ type: "FROM_CATEGORY_SCOOTER", payload: true })}>
+                                <img src={scooter} alt="" className="category--card__image" />
+                                <div className="category--card-content">
+                                    <h1 className="category--card__heading">Scooters</h1>
+                                    <button className="category--card-btn">Buy
+                                        Now</button>
+                                </div>
                             </div>
-                        </div>
-                        <div className="category--card">
-                            <img src={eBike} alt="" className="category--card__image" />
-                            <div className="category--card-content">
-                                <h1 className="category--card__heading">Bikes</h1>
-                                <Link to="/productListing"> <button className="category--card-btn">Buy
-                                    Now</button></Link>
+                        </NavLink>
+                        <NavLink to='/productListing'>
+                            <div className="category--card" onClick={() => dispatch({ type: "FROM_CATEGORY_BIKE", payload: true })}>
+                                <img src={eBike} alt="" className="category--card__image" />
+                                <div className="category--card-content">
+                                    <h1 className="category--card__heading">Bikes</h1>
+                                    <button className="category--card-btn">Buy
+                                        Now</button>
+                                </div>
                             </div>
-                        </div>
+                        </NavLink>
                     </div>
                 </div>
                 <div className="category-wrapper">
@@ -59,7 +65,6 @@ export const Home = () => {
                             </div>
                             <p className="product--downpayment">Zero downpayment</p>
                             <div className="product-cta">
-                                <a href="/cart_page/cart_page.html"> <button className="product__btn">Buy Now</button> </a>
                                 <img src={wishlist} alt="" className="product-wishlist" />
                             </div>
                         </div>
@@ -78,7 +83,6 @@ export const Home = () => {
                             </div>
                             <p className="product--downpayment">Zero downpayment</p>
                             <div className="product-cta">
-                                <a href="/cart_page/cart_page.html"> <button className="product__btn">Buy Now</button> </a>
                                 <img src={wishlist} alt="" className="product-wishlist" />
                             </div>
                         </div>
@@ -97,12 +101,11 @@ export const Home = () => {
                             </div>
                             <p className="product--downpayment">Zero downpayment</p>
                             <div className="product-cta">
-                                <a href="/cart_page/cart_page.html"> <button className="product__btn">Buy Now</button> </a>
                                 <img src={wishlist} alt="" className="product-wishlist" />
                             </div>
                         </div>
                     </div>
-                    <a href="/product_listing/product_listing.html"> <button className="btn-view-all">View all</button> </a>
+                    <NavLink to='/productListing'><button className="btn-view-all">View all</button></NavLink>
                 </div>
                 <div className="category-wrapper">
                     <h2 className="category__heading">Popular Bikes</h2>
@@ -122,7 +125,6 @@ export const Home = () => {
                             </div>
                             <p className="product--downpayment">Zero downpayment</p>
                             <div className="product-cta">
-                                <a href="/cart_page/cart_page.html"> <button className="product__btn">Buy Now</button> </a>
                                 <img src={wishlist} alt="" className="product-wishlist" />
                             </div>
                         </div>
@@ -141,7 +143,6 @@ export const Home = () => {
                             </div>
                             <p className="product--downpayment">Zero downpayment</p>
                             <div className="product-cta">
-                                <a href="/cart_page/cart_page.html"> <button className="product__btn">Buy Now</button> </a>
                                 <img src={wishlist} alt="" className="product-wishlist" />
                             </div>
                         </div>
@@ -160,12 +161,11 @@ export const Home = () => {
                             </div>
                             <p className="product--downpayment">Zero downpayment</p>
                             <div className="product-cta">
-                                <a href="/cart_page/cart_page.html"> <button className="product__btn">Buy Now</button> </a>
                                 <img src={wishlist} alt="" className="product-wishlist" />
                             </div>
                         </div>
                     </div>
-                    <a href="/product_listing/product_listing.html"> <button className="btn-view-all">View all</button> </a>
+                    <NavLink to='/productListing'><button className="btn-view-all">View all</button> </NavLink>
                 </div>
             </main>
             <Footer />

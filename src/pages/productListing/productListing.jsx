@@ -17,7 +17,7 @@ export const ProductListing = () => {
 
     return (
         <div className="product-container">
-            <Navbar />
+            <Navbar showSearch={true} />
             <aside className="sidebar">
                 <div className="product-filter-container">
                     <div className="filter-content">
