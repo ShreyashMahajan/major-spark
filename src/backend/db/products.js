@@ -1,5 +1,15 @@
 import { v4 as uuid } from "uuid";
-import scooter from '../../assets/images/scooter.png';
+import ather from '../../assets/images/backendImage/ather.webp';
+import bounceInfinity from '../../assets/images/backendImage/bounceInfinity.webp';
+import heroFlash from '../../assets/images/backendImage/heroFlash.jpg';
+import komaki from '../../assets/images/backendImage/komaki_Ranger.webp';
+import obenRorr from '../../assets/images/backendImage/oben_rorr.webp';
+import olasS1 from '../../assets/images/backendImage/olaS1.webp';
+import revolt400 from '../../assets/images/backendImage/revoltRV400.webp';
+import simpleEnergy from '../../assets/images/backendImage/simpleEnergy.webp';
+import torkKratos from '../../assets/images/backendImage/tork_Kratos.webp';
+import tvs from '../../assets/images/backendImage/tvs.webp';
+
 
 
 /**
@@ -10,8 +20,8 @@ import scooter from '../../assets/images/scooter.png';
 export const products = [
   {
     _id: uuid(),
-     name: "2021 Lorem 1",
-     image: scooter,
+     name: "Revolt RV400",
+     image: revolt400,
      version: "VDI BS VI",
      speed: 100,
      engine_type: "Automatic",
@@ -23,9 +33,9 @@ export const products = [
   },
   {
     _id: uuid(),
-     name: "2021 Lorem 2",
-     image: scooter,
-     version: "VDI BS VI",
+     name: "Ola S1",
+     image: olasS1,
+     version: "VDI BS IV",
      speed: 100,
      engine_type: "semi automatic",
      variant: "Electric",
@@ -36,21 +46,21 @@ export const products = [
   },
   {
     _id: uuid(),
-     name: "2021 Lorem 3",
-     image: scooter,
+     name: "Ather 450X",
+     image: ather,
      version: "VDI BS VI",
      speed: 100,
      engine_type: "Automatic",
      variant: "Electric",
      emi: 4333,
      price: 92199,
-     category: "bike",
+     category: "scooter",
      rating: 2,
   },
   {
     _id: uuid(),
-     name: "2021 Lorem 4",
-     image: scooter,
+     name: "Simple Energy One",
+     image: simpleEnergy,
      version: "VDI BS VI",
      speed: 100,
      engine_type: "Automatic",
@@ -62,21 +72,21 @@ export const products = [
   },
   {
     _id: uuid(),
-     name: "2021 Lorem 5",
-     image: scooter,
+     name: "Bounce infinity E1",
+     image: bounceInfinity,
      version: "VDI BS VI",
      speed: 100,
      engine_type: "Automatic",
      variant: "Electric",
      emi: 4333,
      price: 58099,
-     category: "scooter",
+     category: "bike",
      rating: 3,
   },
   {
     _id: uuid(),
-     name: "2021 Lorem 6",
-     image: scooter,
+     name: "Oben Rorr",
+     image: obenRorr,
      version: "VDI BS VI",
      speed: 100,
      engine_type: "Automatic",
@@ -88,8 +98,8 @@ export const products = [
   },
   {
     _id: uuid(),
-     name: "2021 Lorem 7",
-     image: scooter,
+     name: "Tork Kratos",
+     image: torkKratos,
      version: "VDI BS VI",
      speed: 100,
      engine_type: "Automatic",
@@ -101,8 +111,8 @@ export const products = [
   },
   {
     _id: uuid(),
-     name: "2021 Lorem 7",
-     image: scooter,
+     name: "Komaki Ranger",
+     image: komaki,
      version: "VDI BS VI",
      speed: 100,
      engine_type: "Automatic",
@@ -114,8 +124,8 @@ export const products = [
   },
   {
     _id: uuid(),
-     name: "2021 Lorem 7",
-     image: scooter,
+     name: "Hero Electric Flash",
+     image: heroFlash,
      version: "VDI BS VI",
      speed: 100,
      engine_type: "Automatic",

@@ -16,11 +16,17 @@ const FilterProvider = ({ children }) => {
     const { productList } = useProduct();
     const [state, dispatch] = useReducer(filterReducer, { sortbyrange: "", sortBySearch: "", sortByRating: "", priceValue: 160000, category: { isBike: false, isScooter: false } });
 
-    const sortedData = sortDataByRange(productList, state.sortbyrange);
-    const filteredData = filterByRating(sortedData, state.sortByRating);
-    const filterDataByPrice = filterByPrice(filteredData, state.priceValue);
-    const dataByCategory = filterDataByCategory(filterDataByPrice, state.category.isBike, state.category.isScooter);
-    const dataBySearch = filterBySearch(dataByCategory, state.searchItem);
+
+    const dataBySearch = filterBySearch(
+        filterDataByCategory(
+            filterByPrice(
+                filterByRating(
+                    sortDataByRange(
+                        productList, state.sortbyrange),
+                    state.sortByRating), state.priceValue),
+            state.category.isBike, state.category.isScooter),
+        state.searchItem);
+
     const finalFilteredData = [...dataBySearch];
     return (
         <FilterContext.Provider value={{ dispatch, state, finalFilteredData }}>
@@ -32,3 +38,4 @@ const FilterProvider = ({ children }) => {
 const useFilter = () => useContext(FilterContext);
 
 export { useFilter, FilterProvider };
+

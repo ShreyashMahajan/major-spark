@@ -17,7 +17,7 @@ export const CartCard = () => {
                         <div className="product-qty">
                             <p className="product-qty__text">Quantity:</p>
                             <div className="product-qty-value">
-                                <button className="btn-qty btn--minus" onClick={() => cartDispatch({ type: 'BTN_DECREASE', payload: cartItem })}>-</button>
+                                <button className="btn-qty btn--minus" disabled={cartItem.quantity < 2} onClick={() => cartDispatch({ type: 'BTN_DECREASE', payload: cartItem })}>-</button>
                                 <input type="number" className="input-qty--value" value={cartItem.quantity} min={1} max={5} />
                                 <button className="btn-qty btn--plus" onClick={() => cartDispatch({ type: 'BTN_INCREASE', payload: cartItem })} >+</button>
                             </div>

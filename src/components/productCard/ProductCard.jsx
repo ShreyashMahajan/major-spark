@@ -20,13 +20,13 @@ export const ProductCard = () => {
                                 <h3 className="product--name">{item.name}</h3>
                                 <p className="product--version">{item.version}</p>
                                 <div className="product-spec">
-                                    <p className="product-info">{item.speed}</p>
+                                    <p className="product-info">{item.speed} kmph</p>
                                     <p className="product-info">{item.engine_type}</p>
                                     <p className="product-info">{item.variant}</p>
                                 </div>
                                 <div className="product-price">
-                                    <p className="product-emi">₹{item.emi}/month</p>
-                                    <p className="product-total">{item.price}</p>
+                                    <p className="product-emi">₹{item.price}</p>
+                                    <p className="product-total">{item.price}/month</p>
                                 </div>
                                 <p className="product--downpayment">Zero downpayment</p>
                                 <div className="product-cta">

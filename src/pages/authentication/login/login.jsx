@@ -12,13 +12,10 @@ export const Login = () => {
         <div className="form-wrapper">
           <h2 className="form__heading">Login</h2>
           <div className="form-main-container">
-            <form action="#" id="login" className="form-container">
+            <form action="#" id="login" className="form-container form--login">
               <label htmlFor="userEmail">Email address</label>
-              <br />
               <input type="email" name="userEmail" id="userEmail" placeholder="enter email address" className="input-data" />
-              <br />
               <label htmlFor="userPassword">Password</label>
-              <br />
               <input type="password" id="userPassword" className="input-data" placeholder="enter password" />
               <div className="user-info-cont">
                 <div className="user-remember">
