@@ -3,13 +3,16 @@ export const filterDataByCategory = (dataList, showBike, showScooter) => {
     if (showBike === false && showScooter === false) {
         return dataList;
     }
+    if (showBike && showScooter) {
+        return dataList;
+    }
     if (showBike) {
         const newdataList = dataList.filter(item => item.category.toLowerCase() === "bike");
-        filteredData = [...newdataList];
+        return filteredData = [...newdataList];
     }
     if (showScooter) {
         const newdataList = dataList.filter(item => item.category.toLowerCase() === "scooter");
-        filteredData = [...newdataList];
+        return filteredData = [...newdataList];
     }
-    return filteredData;
+    return dataList;
 }

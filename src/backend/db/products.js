@@ -80,7 +80,7 @@ export const products = [
      variant: "Electric",
      emi: 4333,
      price: 58099,
-     category: "bike",
+     category: "scooter",
      rating: 3,
   },
   {
