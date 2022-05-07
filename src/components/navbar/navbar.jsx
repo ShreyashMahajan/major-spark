@@ -1,20 +1,20 @@
 import '../navbar/navbar.css';
 import search from '../../assets/images/search.png';
-import Cart from '../../assets/images/cart.png';
+import CartImg from '../../assets/images/cart.png';
 import wishlist from '../../assets/images/wishlist.png';
 import logout from '../../assets/images/logout.png';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useCart } from '../../context/cartContext/cartContext';
 import { useWishList } from '../../context/wishContext/wishContext';
 import { useFilter } from '../../context/filterContext/filterContext';
+import { useAuth } from '../../context/authContext';
 
 export const Navbar = ({ showSearch }) => {
-    const { cartState } = useCart();
-    const { cartList } = cartState;
-    const { wishListState } = useWishList();
-    const { wishList } = wishListState;
-    const { dispatch, state } = useFilter();
-    const { sortBySearch } = state;
+    const { cart } = useCart();
+    const { wishList } = useWishList();
+    const { dispatch } = useFilter();
+    const { authState, logOut } = useAuth();
+    const { isUserLoggedIn } = authState;
     return (
         <>
             <nav className="navbar">
@@ -27,7 +27,8 @@ export const Navbar = ({ showSearch }) => {
                     </div>
                 }
                 <div className="customer-info">
-                    <NavLink to="/login"> <button className="btn--login">Login</button> </NavLink>
+                    {isUserLoggedIn ? <NavLink to="/"> <button className="btn--login" onClick={() => logOut()} >Logout</button> </NavLink>
+                        : <NavLink to="/login"> <button className="btn--login" >Login</button> </NavLink>}
                     <NavLink to="/wishlist">
                         <div className="wishlist-box">
                             <div className="badge">
@@ -39,15 +40,15 @@ export const Navbar = ({ showSearch }) => {
                     <NavLink to="/cart">
                         <div className="cart-box">
                             <div className="badge">
-                                <img src={Cart} alt="Cart image" className="badge__img" />
-                                <span className="badge__text">{cartList.length}</span>
+                                <img src={CartImg} alt="Cart image" className="badge__img" />
+                                <span className="badge__text">{cart.length}</span>
                             </div>
                             <p className="text--cart">Cart</p>
                         </div>
                     </NavLink>
-                    <a href="#" className="item--link">
+                    <NavLink to='/' className='item--link'>
                         <img src={logout} alt="Logout icon" className="badge__img" />
-                    </a>
+                    </NavLink>
                 </div>
                 {
                     showSearch &&

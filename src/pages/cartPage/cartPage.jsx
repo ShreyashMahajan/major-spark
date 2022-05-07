@@ -5,11 +5,10 @@ import { useCart } from '../../context/cartContext/cartContext';
 import { CartCard } from '../../components/cartCard/cartCard';
 
 export const CartPage = () => {
-  const { cartState } = useCart();
+  const { cart, cartTotal } = useCart();
 
-  const totalReducer = (prev, curr) => ({ ...prev, total: prev.total + curr.price * curr.quantity })
-  const total = cartState.cartList.reduce(totalReducer, { total: 0 });
-  console.log("total price ", total);
+  const totalPrice = cartTotal(cart);
+  console.log('get total price', totalPrice)
 
   return (
     <div className='mainCart'>
@@ -27,15 +26,15 @@ export const CartPage = () => {
               <p className="cart-price__heading">PRICE DETAILS</p>
               <div className="cart-price-cont">
                 <p className="cart-price__text">Price (2 items) </p>
-                <p className="cart-price-value">{total.total}</p>
+                <p className="cart-price-value">{totalPrice.totalPrice}</p>
               </div>
               <div className="delivery-charge-detail">
                 <p className="delivery-charge-text">Delivery Charge</p>
-                <p className="delivery-charge--value"> {total.total ? 1000 : 0} </p>
+                <p className="delivery-charge--value"> {totalPrice.totalPrice ? 1000 : 0} </p>
               </div>
               <div className="cart--total">
                 <p className="cart-price__heading">TOTAL AMOUNT</p>
-                <p className="cart-total--value">{total.total ? total.total + 1000 : 0}</p>
+                <p className="cart-total--value">{totalPrice.totalPrice ? totalPrice.totalPrice + 1000 : 0}</p>
               </div>
               <button className="btn-place-order">PLACE ORDER</button>
             </div>

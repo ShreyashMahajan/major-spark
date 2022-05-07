@@ -3,9 +3,8 @@ import { useCart } from '../../context/cartContext/cartContext';
 import { useWishList } from '../../context/wishContext/wishContext';
 
 export const WishCard = () => {
-    const { wishListState, wishListDispatch } = useWishList();
-    const { wishList } = wishListState;
-    const { cartDispatch } = useCart();
+    const { wishList, deleteFromWishlist } = useWishList();
+    const { addToCart } = useCart();
 
     return (
         <>
@@ -29,8 +28,8 @@ export const WishCard = () => {
                             <div className="product-cta">
                                 <button className="product__btn cart--remove" onClick={() => {
                                     {
-                                        cartDispatch({ type: 'MOVE_TO_CART', payload: wishItem }),
-                                            wishListDispatch({ type: 'REMOVE_FROM_WISHLIST', payload: wishItem })
+                                        addToCart(wishItem),
+                                            deleteFromWishlist(wishItem._id)
                                     }
                                 }} >Move to cart</button>
                                 <img src={wishListImg} alt="wishlist icon" className="wishlist__img--active product-wishlist" />
