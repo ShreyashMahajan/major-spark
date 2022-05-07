@@ -1,13 +1,14 @@
 import { useCart } from '../../context/cartContext/cartContext';
 import { useWishList } from '../../context/wishContext/wishContext';
+import deleteFromCart from '../../context/cartContext/cartContext';
 import '../cartCard/cartCard.css';
 
 export const CartCard = () => {
-    const { cartState, cartDispatch } = useCart();
-    const { cartList } = cartState;
-    const { wishListDispatch } = useWishList();
+    const { cart, deleteFromCart, updateCartQuantity } = useCart();
+    const { addToWishlist } = useWishList();
+
     return (
-        cartList.map(cartItem => {
+        cart.map(cartItem => {
             return (
                 <div className="cart-product--card" key={cartItem.id}>
                     <img src={cartItem.image} alt="bike image" className="prod-cart__img" />
@@ -17,16 +18,16 @@ export const CartCard = () => {
                         <div className="product-qty">
                             <p className="product-qty__text">Quantity:</p>
                             <div className="product-qty-value">
-                                <button className="btn-qty btn--minus" disabled={cartItem.quantity < 2} onClick={() => cartDispatch({ type: 'BTN_DECREASE', payload: cartItem })}>-</button>
-                                <input type="number" className="input-qty--value" value={cartItem.quantity} min={1} max={5} />
-                                <button className="btn-qty btn--plus" onClick={() => cartDispatch({ type: 'BTN_INCREASE', payload: cartItem })} >+</button>
+                                <button className="btn-qty btn--minus" disabled={cartItem.qty < 2} onClick={() => updateCartQuantity(cartItem._id, false)}>-</button>
+                                <input type="number" className="input-qty--value" value={cartItem.qty} min={1} max={5} />
+                                <button className="btn-qty btn--plus" onClick={() => updateCartQuantity(cartItem._id, true)} >+</button>
                             </div>
                         </div>
                         <div className="cart__btn-container">
-                            <button className="btn--cart cart--remove" onClick={() => cartDispatch({ type: 'REMOVE_FROM_CART', payload: cartItem })} >Remove From Cart</button>
+                            <button className="btn--cart cart--remove" onClick={() => deleteFromCart(cartItem._id)} >Remove From Cart</button>
                             <button className="btn--cart cart-to-wishList" onClick={() => {
-                                wishListDispatch({ type: 'MOVE_TO_WISHLIST', payload: cartItem }),
-                                    cartDispatch({ type: 'REMOVE_FROM_CART', payload: cartItem })
+                                deleteFromCart(cartItem._id),
+                                    addToWishlist(cartItem)
                             }}>Move to Wishlist</button>
                         </div>
                     </div>

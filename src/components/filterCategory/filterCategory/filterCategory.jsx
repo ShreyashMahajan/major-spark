@@ -6,7 +6,6 @@ export const FilterCategory = () => {
     const { category } = state;
     const { isBike, isScooter } = category;
 
-    console.log(isBike, "bike");
 
     return (
         <div className="filter--category">

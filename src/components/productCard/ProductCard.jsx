@@ -6,8 +6,8 @@ import { useWishList } from '../../context/wishContext/wishContext';
 
 export const ProductCard = () => {
     const { finalFilteredData } = useFilter();
-    const { cartDispatch } = useCart();
-    const { wishListDispatch } = useWishList();
+    const { addToWishlist } = useWishList();
+    const { addToCart, findProductOccurence } = useCart();
 
     return (
         <>
@@ -30,9 +30,9 @@ export const ProductCard = () => {
                                 </div>
                                 <p className="product--downpayment">Zero downpayment</p>
                                 <div className="product-cta">
-                                    <button className="product__btn" onClick={() => cartDispatch({ type: "ADD_TO_CART", payload: item })}>Buy
+                                    <button className="product__btn" onClick={() => addToCart(item)}>Buy
                                         Now</button>
-                                    <img src={wishListNotActiveImg} onClick={() => wishListDispatch({ type: 'ADD_WISHLIST', payload: item })} alt="" className="product-wishlist" />                                </div>
+                                    <img src={wishListNotActiveImg} onClick={() => addToWishlist(item)} alt="" className="product-wishlist" />                                </div>
                             </div>
                         </div>
                     )
